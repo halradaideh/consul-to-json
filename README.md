@@ -2,6 +2,8 @@
 
 Consul KV-store backup and restore utility.
 
+[![NPM](https://nodei.co/npm/consul-to-json.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/consul-to-json/)
+
 ## Instalation
 ```bash
 npm install -g consul-to-json
