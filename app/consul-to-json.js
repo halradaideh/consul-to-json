@@ -9,12 +9,15 @@ const consul = require('consul');
 const pkg = require('../package.json');
 const fs = Promise.promisifyAll(require('fs'));
 
-function getKv() {
-    var opts = {};
+function getKv(options) {
+    var consulOptions = {
+        host:options.host,
+        port:options.port,
+        secure:options.secure
+    }
+    
     return Promise.promisifyAll(
-        kv(
-            consul(opts).kv
-            )
+        kv( consul(consulOptions).kv, { mapTypes: options:typeMapping } )
         );
 }
 
@@ -25,10 +28,15 @@ commander
 commander
     .command('backup [file]')
     .description('backup consul keystory from specified key to JSON file')
+
     .option('-k, --key <key>', 'specify key to backup from')
     .option('-p, --preety-print', 'preety-print JSON')
+    .option('--type-mapping', 'perform type-mapping of kv structure based on consul-kv-object flagmapping')
+    .option('--host <host>', 'consul host to use, defaults to 127.0.0.1')
+    .option('--port <port>', 'consul port to use, defaults to 8500')
+    .option('--secure', 'use HTTPS to connect to consul')
     .action(function (file, options) {
-        getKv().getAsync(options.key || "").then(function (backup) {
+        getKv(options).getAsync(options.key || "").then(function (backup) {
             var string = JSON.stringify(backup, null, options.preetyPrint ? 4 : 0);
             fs.writeFileSync(file, string);
         });
@@ -39,18 +47,22 @@ commander
     .description('restore JSON dump of consul to specified key. Defaults to restoring to root of keystore')
     .option('-k, --key <key>', 'specify key to backup to')
     .option('-d, --delete', 'delete consul kv under specified key')
-    .action(function (file, options) {
+    .option('--type-mapping', 'perform type-mapping of kv structure based on consul-kv-object flagmapping')
+    .option('--host <host>', 'consul host to use, defaults to 127.0.0.1')
+    .option('--port <port>', 'consul port to use, defaults to 8500')
+    .option('--secure', 'use HTTPS to connect to consul').action(function (file, options) {
         var key = options.key || "";
+        var kv = getKv(options); 
         var exec = [
             fs.readFileAsync(file, 'utf-8').then(JSON.parse)
         ];
         if (options.delete) {
-            exec.push(getKv().delAsync(key))
+            exec.push(kv.delAsync(key))
         }
         Promise.all(exec).spread(function (data) {
-            return getKv().setAsync(key, data);
+            return kv.setAsync(key, data);
         })
-            .catch(err => console.log(err.message));
+        .catch(err => console.log(err.message));
     });
 
 commander
