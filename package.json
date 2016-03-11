@@ -1,0 +1,39 @@
+{
+  "name": "consul-to-json",
+  "version": "0.0.1",
+  "description": "Consul KV-store backup and restore utility",
+  "main": "app/consul-to-json.js",
+  "scripts": {
+    "test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
+    "cover": "istanbul cover _mocha -- && xdg-open coverage/lcov-report/index.html",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+  },
+  "bin": {
+    "consul-to-json": "app/consul-to-json.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lekoder/consul-to-json.git"
+  },
+  "keywords": [
+    "consul",
+    "backup",
+    "json",
+    "kv"
+  ],
+  "author": "Mariusz 'koder' Chwalba <mariusz@chwalba.net>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lekoder/consul-to-json/issues"
+  },
+  "homepage": "https://github.com/lekoder/consul-to-json#readme",
+  "dependencies": {
+    "bluebird": "^3.3.4",
+    "commander": "^2.9.0",
+    "consul": "^0.24.0",
+    "consul-kv-object": "^0.4.0"
+  },
+  "engines": {
+    "node": ">=4.0"
+  }
+}
