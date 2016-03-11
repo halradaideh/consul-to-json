@@ -41,14 +41,16 @@ commander
     .option('-d, --delete', 'delete consul kv under specified key')
     .action(function (file, options) {
         var key = options.key || "";
-        var exec = [fs.readFileAsync(file, 'utf-8').then(JSON.parse)];
+        var exec = [
+            fs.readFileAsync(file, 'utf-8').then(JSON.parse)
+        ];
         if (options.delete) {
-            exec.push(kv.delAsync(key))
+            exec.push(getKv().delAsync(key))
         }
         Promise.all(exec).spread(function (data) {
             return getKv().setAsync(key, data);
         })
-        .catch(err => console.log(err.message));
+            .catch(err => console.log(err.message));
     });
 
 commander
