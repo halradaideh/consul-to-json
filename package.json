@@ -31,7 +31,7 @@
     "bluebird": "^3.3.4",
     "commander": "^2.9.0",
     "consul": "^0.24.0",
-    "consul-kv-object": "^0.4.0"
+    "consul-kv-object": "^0.5.2"
   },
   "engines": {
     "node": ">=4.0"
