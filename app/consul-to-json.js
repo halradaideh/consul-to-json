@@ -17,7 +17,7 @@ function getKv(options) {
     }
     
     return Promise.promisifyAll(
-        kv( consul(consulOptions).kv, { mapTypes: options.typeMapping } )
+        kv( consul(consulOptions).kv, { mapTypes: options.typeMapping, concurrency: 3 } )
         );
 }
 
