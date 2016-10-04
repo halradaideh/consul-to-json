@@ -28,9 +28,9 @@ log "running basic tests"
 for test in test/acceptance/*.json
 do
     log "testing $test RESTORE"
-    time consul-to-json restore -d -k test $test     || required "restore of json from $test"
+    consul-to-json restore -d -k test $test     || required "restore of json from $test"
     log "testing $test BACKUP"
-    time consul-to-json backup -p -k test /tmp/t     || required "does backup of $test"
+    consul-to-json backup -p -k test /tmp/t     || required "does backup of $test"
     log "diff of $test"
     diff $test /tmp/t                                || required "backup and restore of $test match"
 done
