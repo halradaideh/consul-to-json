@@ -1,6 +1,6 @@
 {
   "name": "consul-to-json",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Consul KV-store backup and restore utility",
   "main": "app/consul-to-json.js",
   "scripts": {
