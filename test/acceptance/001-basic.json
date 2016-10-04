@@ -1,0 +1,11 @@
+{
+    "number": 123,
+    "object": {
+        "number": 456,
+        "object": {
+            "foo": "bar"
+        },
+        "string": "other string"
+    },
+    "string": "a String"
+}

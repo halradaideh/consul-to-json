@@ -4,9 +4,9 @@
   "description": "Consul KV-store backup and restore utility",
   "main": "app/consul-to-json.js",
   "scripts": {
-    "test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
-    "cover": "istanbul cover _mocha -- && xdg-open coverage/lcov-report/index.html",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+    "test:acceptance": "./test/acceptance.sh",
+    "test:prepare": "./test/prepare-acceptance.sh",
+    "test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec"
   },
   "bin": {
     "consul-to-json": "app/consul-to-json.js"

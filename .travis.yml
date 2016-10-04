@@ -1,0 +1,16 @@
+language: node_js
+sudo: false
+
+node_js:
+  - "6"
+
+before_script:
+  - wget https://releases.hashicorp.com/consul/0.7.0/consul_0.7.0_linux_amd64.zip -O consul_0.7.0_linux_amd64.zip
+  - unzip consul_0.7.0_linux_amd64.zip
+  - export PATH=$PATH:$(pwd)
+
+install:
+  - npm install -g
+
+script:
+  - npm run test:acceptance

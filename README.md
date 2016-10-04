@@ -1,5 +1,7 @@
 # consul-to-json
 
+[![Build Status](https://travis-ci.org/lekoder/consul-to-json.svg?branch=ci)](https://travis-ci.org/lekoder/consul-to-json)
+
 Consul KV-store backup and restore utility.
 
 [![NPM](https://nodei.co/npm/consul-to-json.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/consul-to-json/)
@@ -17,7 +19,7 @@ npm install -g consul-to-json
 
   Commands:
 
-    backup [options] [file]   backup consul keystory from specified key to JSON file
+    backup [options] [file]   backup consul keystore from specified key to JSON file
     restore [options] [file]  restore JSON dump of consul to specified key. Defaults to restoring to root of keystore
 ```
 
@@ -50,7 +52,7 @@ npm install -g consul-to-json
 
     -h, --help       output usage information
     -k, --key <key>  specify key to backup to
-    -d, --delete     delete consul kv under specified key
+    -d, --delete     delete consul kv under specified key before restoring
     --type-mapping   perform type-mapping of kv structure based on consul-kv-object flagmapping
     --host <host>    consul host to use, defaults to 127.0.0.1
     --port <port>    consul port to use, defaults to 8500
