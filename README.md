@@ -34,6 +34,7 @@ npm install -g consul-to-json
 
     -h, --help          output usage information
     -k, --key <key>     specify key to backup from
+    -t, --token <key>   provide token for Conusl based ACL    
     -p, --preety-print  preety-print JSON
     --type-mapping      perform type-mapping of kv structure based on consul-kv-object flagmapping
     --host <host>       consul host to use, defaults to 127.0.0.1
@@ -52,6 +53,7 @@ npm install -g consul-to-json
 
     -h, --help       output usage information
     -k, --key <key>  specify key to backup to
+    -t, --token <key>   provide token for Conusl based ACL
     -d, --delete     delete consul kv under specified key before restoring
     --type-mapping   perform type-mapping of kv structure based on consul-kv-object flagmapping
     --host <host>    consul host to use, defaults to 127.0.0.1
