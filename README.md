@@ -1,8 +1,10 @@
 # consul-to-json
 
-[![Build Status](https://travis-ci.org/lekoder/consul-to-json.svg?branch=ci)](https://travis-ci.org/lekoder/consul-to-json)
+[![Build Status](https://travis-ci.org/halradaideh/consul-to-json.svg?branch=master)](https://travis-ci.org/lekoder/consul-to-json)
 
 Consul KV-store backup and restore utility.
+
+Consul version 1.0.2
 
 [![NPM](https://nodei.co/npm/consul-to-json.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/consul-to-json/)
 
