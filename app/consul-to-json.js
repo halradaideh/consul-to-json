@@ -56,7 +56,6 @@ commander
     .option('-k, --key <key>', 'specify key to backup to')
     .option('-t, --token <key>', 'token for acl')
     .option('-d, --delete', 'delete consul kv under specified key before restoring')	
-    .option('-d, --delete', 'delete consul kv under specified key before restoring')
     .option('--type-mapping', 'perform type-mapping of kv structure based on consul-kv-object flagmapping')
     .option('--host <host>', 'consul host to use, defaults to 127.0.0.1')
     .option('--port <port>', 'consul port to use, defaults to 8500')
