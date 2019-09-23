@@ -13,7 +13,10 @@ function getKv(options) {
     var consulOptions = {
         host:options.host,
         port:options.port,
-        secure:options.secure
+        secure:options.secure,
+        defaults: {
+            token: options.token
+        }
     }
     
     return Promise.promisifyAll(
@@ -31,6 +34,7 @@ commander
 
     .option('-k, --key <key>', 'specify key to backup from')
     .option('-p, --preety-print', 'preety-print JSON')
+    .option('-t, --token <key>', 'token for acl')
     .option('--type-mapping', 'perform type-mapping of kv structure based on consul-kv-object flagmapping')
     .option('--host <host>', 'consul host to use, defaults to 127.0.0.1')
     .option('--port <port>', 'consul port to use, defaults to 8500')
@@ -50,7 +54,8 @@ commander
     .command('restore [file]')
     .description('restore JSON dump of consul to specified key. Defaults to restoring to root of keystore')
     .option('-k, --key <key>', 'specify key to backup to')
-    .option('-d, --delete', 'delete consul kv under specified key before restoring')
+    .option('-t, --token <key>', 'token for acl')
+    .option('-d, --delete', 'delete consul kv under specified key before restoring')	
     .option('--type-mapping', 'perform type-mapping of kv structure based on consul-kv-object flagmapping')
     .option('--host <host>', 'consul host to use, defaults to 127.0.0.1')
     .option('--port <port>', 'consul port to use, defaults to 8500')
