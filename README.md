@@ -1,8 +1,10 @@
 # consul-to-json
 
-[![Build Status](https://travis-ci.org/lekoder/consul-to-json.svg?branch=ci)](https://travis-ci.org/lekoder/consul-to-json)
+[![Build Status](https://travis-ci.org/halradaideh/consul-to-json.svg?branch=master)](https://travis-ci.org/lekoder/consul-to-json)
 
 Consul KV-store backup and restore utility.
+
+Consul version 1.0.2
 
 [![NPM](https://nodei.co/npm/consul-to-json.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/consul-to-json/)
 
@@ -53,6 +55,7 @@ npm install -g consul-to-json
 
     -h, --help       output usage information
     -k, --key <key>  specify key to backup to
+    -t, --token <key>   provide token for Conusl based ACL
     -d, --delete     delete consul kv under specified key before restoring
     -t, --token <key>   provide token for Conusl based ACL
     --type-mapping   perform type-mapping of kv structure based on consul-kv-object flagmapping
