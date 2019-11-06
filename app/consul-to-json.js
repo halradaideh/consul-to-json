@@ -42,7 +42,12 @@ commander
     .action(function (file, options) {
         getKv(options).getAsync(options.key || "").then(function (backup) {
             var string = JSON.stringify(backup, null, options.preetyPrint ? 4 : 0);
-            fs.writeFileSync(file, string);
+            if (typeof file !== 'undefined' && file) {
+                fs.writeFileSync(file, string);
+            }
+            else {
+                console.log(string);
+            }
         })
             .catch(err => {
                 console.log(err.message)

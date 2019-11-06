@@ -30,7 +30,7 @@
   "homepage": "https://github.com/lekoder/consul-to-json#readme",
   "dependencies": {
     "bluebird": "^3.4.6",
-    "commander": "^2.9.0",
+    "commander": "^2.20.3",
     "consul": "^0.26.0",
     "consul-kv-object": "^1.1.0"
   },
